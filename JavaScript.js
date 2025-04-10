@@ -4,10 +4,15 @@ let size = 0;
 let darkness = 90;
 
 changeSize.addEventListener("click", () => {
-    size = parseInt(prompt("Chose a new size size grid"));
-    grid.innerHTML = "";
-    createGrid(size);
-})
+    size = parseInt(prompt("Enter a new size"));
+    if (size >= 100) {
+        alert ("Sorry, only numbers less than 100 hare allowed");
+    }
+    else if (size < 100) {
+        grid.innerHTML = "";
+        createGrid(size);
+    }
+});
 
 function randomColor (max) {
     let randomNumber = Math.floor(Math.random() * max);
@@ -23,7 +28,7 @@ function createGrid(size) {
         square.style.width = `${squareSize}`;
         square.style.height = `${squareSize}`;
         square.style.border = "0.5px solid rgb(95, 65, 23)";
-        square.style.borderRadius = "5px";
+        square.style.borderRadius = "3px";
         square.style.flexShrink = "0";
         square.dataset.darkness = 100;
         square.dataset.color = randomColor(358);

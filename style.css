@@ -2,9 +2,13 @@
     display: flex;
     justify-content: center;
 }
+body {
+    background-color: blanchedalmond;
+}
 #grid {
     display: flex;
     border: 2px solid rgb(87, 65, 33);
+    background-color: azure;
     border-radius: 5px;
     flex-wrap: wrap;
     flex-shrink: 0;
@@ -26,5 +30,3 @@
     border-radius: 5px;
     padding: 3px 10px;
 }
-
-/*
