@@ -9,6 +9,11 @@ changeSize.addEventListener("click", () => {
     createGrid(size);
 })
 
+function randomColor (max) {
+    let randomNumber = Math.floor(Math.random() * max);
+    return randomNumber;
+}
+
 function createGrid(size) {
     let squareSize = grid.clientWidth / size;
     console.log(squareSize);
@@ -21,13 +26,14 @@ function createGrid(size) {
         square.style.borderRadius = "5px";
         square.style.flexShrink = "0";
         square.dataset.darkness = 100;
+        square.dataset.color = randomColor(358);
         grid.appendChild(square);
         square.addEventListener("mouseenter", () => {
             let currentDarkness = parseFloat(square.dataset.darkness);
-            if (currentDarkness > 20)
+            if (currentDarkness > 30)
                 currentDarkness -= 10;
             square.dataset.darkness = currentDarkness;
-            square.style.backgroundColor = `hsl(194, 58.80%, ${currentDarkness}%)`;
+            square.style.backgroundColor = `hsl(${parseInt(square.dataset.color)}, 58.80%, ${currentDarkness}%)`;
         });
     }
 }
